@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">Fast Cleaner</string>
+    <string name="usedmemory">Использовано памяти</string>
+    <string name="usedram">Использовано RAM</string>
+    <string name="boost">Ускорить</string>
+    <string name="clean">Очистка</string>
+    <string name="scanCpu">Сканирование\nОЗУ ...</string>
+    <string name="scanMemory">Сканирование\nпамяти устройства ....</string>
+    <string name="found">Обнаружено:</string>
+    <string name="running_apps">"Запущенные приложения: "</string>
+    <string name="visible_cache">Видимый кеш</string>
+    <string name="cleanIt">Очистить</string>
+    <string name="files">Файлы данных</string>
+    <string name="apps">Данные приложений</string>
+    <string name="trash">Рекламный мусор</string>
+    <string name="cleanBottom">Освобождение\nданных приложений ...</string>
+<string name="CleanDone">Освобождение\nвыполнено!</string>
+    <string name="boostRam">Сканирование\nОЗУ ...</string>
+    <string name="boost_found">Найдено:</string>
+    <string name="boosting">Ускорение</string>
+    <string name="running_apps_wsign">Запущенные приложения</string>
+    <string name="boostBottom">Освобождение\nоперативной памяти...</string>
+    <string name="gettingData">Получение данных ...</string>
+    <string name="cool">Охладить</string>
+    <string name="menu_cool">Охлаждение</string>
+    <string name="overheated">Перегрев</string>
+    <string name="battery_save">Экономия\nзаряда</string>
+    <string name="files_manager">Файловый\nменеджер</string>
+    <string name="apps_manager">Менеджер\nприложений</string>
+    <string name="batteryOptimize">Оптимизация\nэнергосбережения...</string>
+    <string name="appsCount">приложений</string>
+    <string name="normalMode">Обычный режим</string>
+    <string name="middleMode">Средняя экономия заряда</string>
+    <string name="maxMode">Максимальная экономия заряда</string>
+    <string name="countApps">Переводим в спящий режим ресурсоемкие приложения</string>
+    <string name="give_permission_top">Выдайте разрешение</string>
+    <string name="findApp">Найдите приложений</string>
+    <string name="give_permission">Для эффективной оптимизации нужно предоставить доступ к статистике использования приложений.</string>
+    <string name="allow">Разрешить</string>
+    <string name="filesManager">Файловый менеджер</string>
+    <string name="music">Музыка</string>
+    <string name="musicText">Очистите песни, которые вам не нравятся, чтобы сэкономить  пространство на вашем устройстве</string>
+    <string name="video">Видео</string>
+    <string name="videoText">Очистите видео, которые вам не нравятся, чтобы сэкономить  пространство на вашем устройстве</string>
+    <string name="image">Изображения</string>
+    <string name="imageText">Очистите изображения, которые вам не нравятся, чтобы сэкономить  пространство на вашем устройстве</string>
+    <string name="appManager">Менеджер приложений</string>
+    <string name="delete">Удалить</string>
+    <string-array name="generic_filter_files">
+        <item>.tmp</item>
+        <item>.log</item>
+    </string-array>
+    <string-array name="generic_filter_folders">
+        <item>Logs</item>
+        <item>logs</item>
+        <item>temp</item>
+        <item>Temporary</item>
+        <item>temporary</item>
+    </string-array>
+    <string-array name="aggressive_filter_folders">
+        <item>supersonicads</item>
+        <item>Cache</item>
+        <item>Analytics</item>
+        <item>thumbnails?</item>
+        <item>mobvista</item>
+        <item>UnityAdsVideoCache</item>
+        <item>albumthumbs?</item>
+        <item>LOST.DIR</item>
+        <item>.Trash</item>
+        <item>desktop.ini</item>
+        <item>leakcanary</item>
+        <item>.DS_Store</item>
+        <item>.spotlight-V100</item>
+        <item>fseventsd</item>
+        <item>Bugreport</item>
+        <item>bugreports</item>
+        <item>.Trash</item>
+        <item>cache</item>
+        <item>splashad</item>
+    </string-array>
+    <string-array name="aggressive_filter_files">
+        <item>.exo</item>
+        <item>thumbs?.db</item>
+        <item>.thumb[0-9]</item>
+        <item>splashad</item>
+    </string-array>
+    <string-array name="themes">
+        <item>Auto</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+</resources>

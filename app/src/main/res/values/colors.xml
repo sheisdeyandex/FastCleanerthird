@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background">#2D7AEE</color>
+    <color name="button_background">#66B6FF</color>
+    <color name="menu_background">#F8F8F8</color>
+    <color name="menu_text">#4E4C4C</color>
+    <color name="track_color">#1AFFFFFF</color>
+    <color name="transparent">#80FFFFFF</color>
+    <color name="button_delete">#FF6666</color>
+    <color name="transparent_white">#80ffffff</color>
+    <color name="permission_text">#A64E4C4C</color>
+    <color name="permission_text_app">#DE4E4C4C</color>
+    <color name="permission_text_card">#F0EFEF</color>
+    <color name="apps_size">#48BCEE</color>
+</resources>
