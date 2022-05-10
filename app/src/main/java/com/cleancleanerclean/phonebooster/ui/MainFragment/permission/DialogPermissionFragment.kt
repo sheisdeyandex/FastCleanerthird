@@ -1,6 +1,8 @@
 package com.cleancleanerclean.phonebooster.ui.MainFragment.permission
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
@@ -25,6 +27,7 @@ class DialogPermissionFragment : DialogFragment() {
         binding = DialogPermissionBinding.inflate(inflater, container, false)
         val v: View = binding.root
         dialog!!.window!!.requestFeature(Window.FEATURE_NO_TITLE)
+        dialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog!!.setCanceledOnTouchOutside(true)
         binding.mbAllow.setOnClickListener {
             openAndroidPermissionsMenu()

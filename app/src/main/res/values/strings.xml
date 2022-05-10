@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Fast Cleaner</string>
+    <string name="app_name">Умный очиститель</string>
+    <string name="admob_banner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_inter">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_size">FULL_BANNER</string>
     <string name="usedmemory">Использовано памяти</string>
     <string name="usedram">Использовано RAM</string>
     <string name="boost">Ускорить</string>
@@ -14,7 +17,7 @@
     <string name="apps">Данные приложений</string>
     <string name="trash">Рекламный мусор</string>
     <string name="cleanBottom">Освобождение\nданных приложений ...</string>
-<string name="CleanDone">Освобождение\nвыполнено!</string>
+    <string name="CleanDone">Освобождение\nвыполнено!</string>
     <string name="boostRam">Сканирование\nОЗУ ...</string>
     <string name="boost_found">Найдено:</string>
     <string name="boosting">Ускорение</string>
@@ -46,6 +49,13 @@
     <string name="imageText">Очистите изображения, которые вам не нравятся, чтобы сэкономить  пространство на вашем устройстве</string>
     <string name="appManager">Менеджер приложений</string>
     <string name="delete">Удалить</string>
+    <string name="share">Поделиться</string>
+    <string name="scan">Сканировать</string>
+    <string name="start">Начать</string>
+    <string name="accept">Примите</string>
+    <string name="policy">Политика конфиденциальности</string>
+    <string name="policy_bottom">Чтобы продолжить, примите условия</string>
+    <string name="scanning_system">Сканирование системы</string>
     <string-array name="generic_filter_files">
         <item>.tmp</item>
         <item>.log</item>

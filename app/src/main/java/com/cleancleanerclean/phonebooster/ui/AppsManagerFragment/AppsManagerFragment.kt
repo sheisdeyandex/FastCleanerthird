@@ -20,6 +20,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cleancleanerclean.phonebooster.BuildConfig
 import com.cleancleanerclean.phonebooster.databinding.AppsManagerFragmentBinding
+import com.cleancleanerclean.phonebooster.dry.AdmobBanner
+import com.cleancleanerclean.phonebooster.dry.AdmobInter
 import com.cleancleanerclean.phonebooster.ui.AppsManagerFragment.adapter.AppsAdapter
 import com.cleancleanerclean.phonebooster.ui.AppsManagerFragment.interfaces.DeleteAppsI
 import com.cleancleanerclean.phonebooster.ui.AppsManagerFragment.models.AppsModel
@@ -53,12 +55,16 @@ class AppsManagerFragment : Fragment(), DeleteAppsI {
         initDeleteResult()
         return binding.root
     }
+    var admobBanner = AdmobBanner()
+    var admobInter = AdmobInter()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[AppsManagerViewModel::class.java]
         initArrayLists()
         getPackageList()
+        admobBanner.loadAdBanner(binding.adView)
         binding.ivBack.setOnClickListener { it.findNavController().popBackStack() }
+        admobInter.loadInter(requireContext())
     }
 
     private fun initDeleteResult(){
@@ -67,6 +73,7 @@ class AppsManagerFragment : Fragment(), DeleteAppsI {
         ) { result ->
             when (result.resultCode) {
                 Activity.RESULT_OK -> {
+                    admobInter.showInter(requireActivity())
                     for (i in integers1) {
                         for (i1 in ids.indices) {
                             if(appsAdapter.checked>0) {

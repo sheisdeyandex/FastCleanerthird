@@ -5,7 +5,6 @@
     app:cardCornerRadius="20dp"
   app:cardBackgroundColor="@color/white"
     android:layout_height="wrap_content">
-
     <RelativeLayout
         android:layout_gravity="center_vertical|center"
         android:layout_width="match_parent"
@@ -32,7 +31,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintHorizontal_bias="0.05"
+                    android:id="@+id/ivAppIcon"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -41,9 +41,7 @@
                     android:textColor="@color/permission_text"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.15"
+                    app:layout_constraintTop_toTopOf="@+id/ivAppIcon"
                     android:textSize="12sp"
                     android:id="@+id/tvFindApp"
                     />
@@ -53,8 +51,7 @@
                     android:text="@string/app_name"
                     android:textColor="@color/permission_text_app"
                     app:layout_constraintStart_toStartOf="@+id/tvFindApp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivAppIcon"
                     app:layout_constraintVertical_bias="0.7"
                     android:textSize="14sp"
                     />

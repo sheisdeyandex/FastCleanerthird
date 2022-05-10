@@ -10,6 +10,8 @@ import com.cleancleanerclean.phonebooster.dry.AnimChange
 import com.cleancleanerclean.phonebooster.ui.activities.MainActivity
 import com.cleancleanerclean.phonebooster.R
 import com.cleancleanerclean.phonebooster.databinding.CoolFragmentBinding
+import com.cleancleanerclean.phonebooster.dry.AdmobBanner
+import com.cleancleanerclean.phonebooster.dry.AdmobInter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -30,27 +32,30 @@ class CoolFragment : Fragment() {
         _binding = CoolFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
+    var admobBanner = AdmobBanner()
+    var admobInter = AdmobInter()
     private fun setAnim(finish:Boolean){
-       CoroutineScope(Dispatchers.Main).launch {
-           delay(viewModel.timerTime)
-           if(finish){
-               (requireActivity() as MainActivity).navController.navigate(R.id.action_coolFragment_to_finishOrRecommend)
-
-           }
-           else{
-               binding.tvFoundTemperature.text = viewModel.cpuTemperature().toString()
-               AnimChange.changeAnimToWork(binding.clCoolScan,binding.clCool)
-           }
-       }
-
-
-
+        admobBanner.isLoaded.observe(requireActivity()){
+            CoroutineScope(Dispatchers.Main).launch {
+                delay(viewModel.timerTime)
+                if(finish){
+                        admobInter.showInter(requireActivity())
+                        (requireActivity() as MainActivity).navController.navigate(R.id.action_coolFragment_to_finishOrRecommend)
+                    }
+                else{
+                    admobInter.showInter(requireActivity())
+                    binding.tvFoundTemperature.text = viewModel.cpuTemperature().toString()
+                    AnimChange.changeAnimToWork(binding.clCoolScan,binding.clCool)
+                }
+            }
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[CoolViewModel::class.java]
-
+        admobBanner.loadAdBanner(binding.adView)
+        admobInter.loadInter(requireContext())
         binding.ivBoostFinished.setImageDrawable(viewModel.initImageDrawable(requireContext()))
         binding.mbtnCool.setOnClickListener {
             AnimChange.changeWorkToAnim(binding.clCoolScan,binding.clCool)

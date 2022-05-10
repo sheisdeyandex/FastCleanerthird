@@ -3,6 +3,7 @@ package com.cleancleanerclean.phonebooster.ui.BatterySaverFragment
 import android.animation.ValueAnimator
 import android.graphics.PorterDuff
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.cleancleanerclean.phonebooster.R
 import com.cleancleanerclean.phonebooster.databinding.BatterySaverFragmentBinding
+import com.cleancleanerclean.phonebooster.dry.AdmobBanner
+import com.cleancleanerclean.phonebooster.dry.AdmobInter
 import com.cleancleanerclean.phonebooster.dry.AnimChange
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.radiobutton.MaterialRadioButton
@@ -42,39 +45,47 @@ class BatterySaverFragment : Fragment() {
         initClickLayouts()
         initRadioButtons()
         initAnim()
-        setCountAppsAnim()
+        admobInter.loadInter(requireContext())
+        binding.mbtnSaveBattery.setOnClickListener {
+            setCountAppsAnim()
+        }
     }
-private fun initAnim (){
-    CoroutineScope(Dispatchers.Main).launch {
-        delay(viewModel.timer)
-        AnimChange.changeAnimToWork(
-            binding.clBatterySaverScan,
-            binding.clBatterySaver
-        )
-    }
+    var admobInter = AdmobInter()
+    var admobBanner = AdmobBanner()
+    private fun initAnim (){
+    admobBanner.loadAdBanner(binding.adView)
+    admobBanner.isLoaded.observe(requireActivity()){
+        CoroutineScope(Dispatchers.Main).launch {
+            delay(viewModel.timer)
+            admobInter.showInter(requireActivity())
+            AnimChange.changeAnimToWork(
+                binding.clBatterySaverScan,
+                binding.clBatterySaver
+                )
+            }
+        }
 }
     private fun setCountAppsAnim(){
-        binding.mbtnSaveBattery.setOnClickListener {
             AnimChange.changeWorkToAnim(
                 binding.clBatterySaverScan,
                 binding.clBatterySaver
             )
-            CoroutineScope(Dispatchers.Main).launch {
-                viewModel.countApps(requireContext())
-                viewModel.countText.observe(requireActivity()){
-                    binding.tvBatterySaverBottom.text = it
+        viewModel.finishFragment.observe(requireActivity()){it1->
+            if(it1){
+                changeBrigtness()
+                CoroutineScope(Dispatchers.Main).launch {
+                    delay(1000)
+                    admobInter.showInter(requireActivity())
+                    view?.findNavController()?.navigate(R.id.action_batterySaverFragment_to_finishOrRecommend)
                 }
-                viewModel.finishFragment.observe(requireActivity()){
-                    if(it){
-                        CoroutineScope(Dispatchers.Main).launch {
-                            changeBrigtness()
-                            delay(1000)
-                            view?.findNavController()?.navigate(R.id.action_batterySaverFragment_to_finishOrRecommend)
-                        }
                     }
                 }
+
+            viewModel.countApps(requireContext())
+            viewModel.countText.observe(requireActivity()){
+                binding.tvBatterySaverBottom.text = it
             }
-        }
+
     }
     private fun changeBrigtness(){
         if(binding.mrbNormalMode.isChecked){

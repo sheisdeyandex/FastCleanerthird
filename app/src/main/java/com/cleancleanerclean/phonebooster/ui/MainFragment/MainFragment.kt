@@ -16,8 +16,6 @@ import kotlinx.coroutines.Dispatchers
 
 class MainFragment : Fragment(){
     private var _binding: MainFragmentBinding? = null
-    // This property is only valid between onCreateView and
-// onDestroyView.
     private val binding get() = _binding!!
     companion object {
         fun newInstance() = MainFragment()
@@ -40,16 +38,14 @@ class MainFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         initClicks()
-       setUsages()
+        setUsages()
     }
     private fun setUsages(){
         binding.tvUsedMemory.text = viewModel.devidedStorage
         binding.lpiProgressMemory.progress = viewModel.progress.toInt()
-        CoroutineScope(Dispatchers.Main).let {
-
-            binding.lpiProgressRam.progress = viewModel.updateRam(requireActivity())
-            binding.tvUsedRam.text = viewModel.updateRamString(requireActivity())
-        }
+        binding.lpiProgressRam.progress = viewModel.updateRam(requireActivity())
+        binding.tvUsedRam.text = viewModel.updateRamString(requireActivity())
+        binding.tvPercentMemory.text = viewModel.progress.toString()+"%"
     }
     private fun initClicks(){
         val dialogPermissionFragment = DialogPermissionFragment()
@@ -78,6 +74,9 @@ class MainFragment : Fragment(){
         }
         binding.mcvAppManager.setOnClickListener {
             it.findNavController().navigate(R.id.action_mainFragment_to_appsManagerFragment)
+        }
+        binding.ivCircle.setOnClickListener {
+            binding.mcvClean.performClick()
         }
     }
     private fun changeFragment(id:Int){

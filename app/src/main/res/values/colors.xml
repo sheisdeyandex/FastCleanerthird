@@ -7,8 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_68">#A3FFFFFF</color>
     <color name="background">#2D7AEE</color>
     <color name="button_background">#66B6FF</color>
+    <color name="splash_track">#DEE6FF</color>
     <color name="menu_background">#F8F8F8</color>
     <color name="menu_text">#4E4C4C</color>
     <color name="track_color">#1AFFFFFF</color>
@@ -19,4 +21,7 @@
     <color name="permission_text_app">#DE4E4C4C</color>
     <color name="permission_text_card">#F0EFEF</color>
     <color name="apps_size">#48BCEE</color>
+    <color name="checkbox_unchecked_tick">#334E4C4C</color>
+    <color name="checkbox_unchecked">#8CFFFFFF</color>
+    <color name="policy_bottom">#ABABAB</color>
 </resources>

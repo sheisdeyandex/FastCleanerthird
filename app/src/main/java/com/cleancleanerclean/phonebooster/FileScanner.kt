@@ -190,7 +190,7 @@ class FileScanner(private val path: File, context: Context) {
         while (cycles < maxCycles) {
             // find files
             foundFiles = listFiles
-            if (gui != null) gui!!.cpiCleanProgress.progressMax = gui!!.cpiCleanProgress.progressMax + foundFiles.size
+//            if (gui != null) gui!!.cpiCleanProgress.progressMax = gui!!.cpiCleanProgress.progressMax + foundFiles.size
 
             // scan & delete
             var tv: TextView? = null
@@ -203,14 +203,14 @@ class FileScanner(private val path: File, context: Context) {
 
                     }
                 }
-                if (gui != null) { // progress
-                        CoroutineScope(Dispatchers.Main).launch {
-                            gui!!.cpiCleanProgress.progress = gui!!.cpiCleanProgress.progress + 1
-
-                        }
+//                if (gui != null) { // progress
+//                        CoroutineScope(Dispatchers.Main).launch {
+//                            gui!!.cpiCleanProgress.progress = gui!!.cpiCleanProgress.progress + 1
+//
+//                        }
                     val scanPercent = gui!!.cpiCleanProgress.progress * 100.0 / gui!!.cpiCleanProgress.progressMax
 
-                }
+                //}
             }
             if (filesRemoved == 0) break // nothing found this run, no need to run again
             filesRemoved = 0 // reset for next cycle

@@ -6,11 +6,39 @@
     android:background="@color/background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.CoolFragment.CoolFragment">
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="0dp"
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="@string/admob_size"
+        ads:adUnitId="@string/admob_banner"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/clCoolScan"
         >
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintDimensionRatio="1:1"
+            android:id="@+id/lavRepeat"
+            app:lottie_rawRes="@raw/cool_repeat"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:scaleY="2"
+            android:scaleX="2"
+            />
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -86,7 +114,7 @@
             app:layout_constraintHeight_percent="0.4"
             app:layout_constraintDimensionRatio="1:1"
             android:id="@+id/ivCpiCenterIcon"
-            app:lottie_rawRes="@raw/rokcet"
+            app:lottie_rawRes="@raw/cool"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"/>
         <TextView

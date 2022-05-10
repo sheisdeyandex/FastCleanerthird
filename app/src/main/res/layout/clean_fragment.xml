@@ -6,6 +6,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     tools:context=".ui.CleanFragment.CleanFragment">
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="0dp"
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="@string/admob_size"
+        ads:adUnitId="@string/admob_banner"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,16 +52,17 @@
             app:cpb_progressbar_width="10dp"
             app:cpb_indeterminate_mode="true"
             />
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/cpiCleanProgress"
             app:layout_constraintBottom_toBottomOf="@+id/cpiCleanProgress"
-            app:layout_constraintWidth_percent="0.25"
-            app:layout_constraintDimensionRatio="1:1"
             android:src="@drawable/ic_clean_broom"
+            app:lottie_rawRes="@raw/clean"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"
             android:visibility="gone"
             android:id="@+id/ivCleanFinished"
             />
@@ -70,7 +83,9 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/adView"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:visibility="gone"
         android:id="@+id/clFound">
         <TextView

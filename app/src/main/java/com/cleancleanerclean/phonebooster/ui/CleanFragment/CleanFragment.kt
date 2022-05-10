@@ -18,6 +18,8 @@ import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceManager
 import com.cleancleanerclean.phonebooster.*
 import com.cleancleanerclean.phonebooster.databinding.CleanFragmentBinding
+import com.cleancleanerclean.phonebooster.dry.AdmobBanner
+import com.cleancleanerclean.phonebooster.dry.AdmobInter
 import com.cleancleanerclean.phonebooster.ui.activities.MainActivity
 import com.cleancleanerclean.phonebooster.dry.AnimChange
 import com.google.android.material.checkbox.MaterialCheckBox
@@ -55,8 +57,6 @@ class CleanFragment : Fragment() {
             CoroutineScope(Dispatchers.IO+ Job()).launch {
                 scan(true)
             }
-
-
         }
     }
 
@@ -88,7 +88,8 @@ class CleanFragment : Fragment() {
             delay(viewModel.timer)
             }
             if(delete){
-                (requireActivity() as MainActivity).navController.navigate(R.id.action_cleanFragment_to_finishOrRecommend)
+                    admobInter.showInter(requireActivity())
+                    (requireActivity() as MainActivity).navController.navigate(R.id.action_cleanFragment_to_finishOrRecommend)
             }
             else{
                 endOfScan()
@@ -121,6 +122,7 @@ class CleanFragment : Fragment() {
             AnimChange.changeAnimToWork(binding.clMemoryScan, binding.clFound)
             binding.tvFoundMB.text = convertSize(totalFound)
             binding.tvFoundApps.text = foundAppsText
+            admobInter.showInter(requireActivity())
         }
     }
     private lateinit var viewModel: CleanViewModel
@@ -141,6 +143,8 @@ private fun setCheckBox(){
         _binding = CleanFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
+    var admobBanner = AdmobBanner()
+    var admobInter = AdmobInter()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[CleanViewModel::class.java]
@@ -154,6 +158,8 @@ private fun setCheckBox(){
             binding.tvCleanBottom.text = getString(R.string.cleanBottom)
             clean()
         }
+        admobBanner.loadAdBanner(binding.adView)
+        admobInter.loadInter(requireContext())
     }
 
     private fun initPrefs(){

@@ -5,13 +5,46 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
-    tools:context=".ui.BoostFragment.BoostFragment">
-
+    tools:context=".ui.BoostFragment.BoostFragment"
+    android:id="@+id/main"
+    >
+    <com.google.android.gms.ads.AdView
+         android:id="@+id/adView"
+        android:layout_width="0dp"
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="@string/admob_size"
+        ads:adUnitId="@string/admob_banner"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adView"
         android:id="@+id/clRamScan"
         >
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.52"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintDimensionRatio="1:1"
+            app:lottie_rawRes="@raw/boost"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:visibility="gone"
+            android:id="@+id/lavBoost"
+            />
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -76,16 +109,21 @@
     android:visibility="gone"
     android:id="@+id/clBoost"
     >
-<ImageView
+<com.airbnb.lottie.LottieAnimationView
     android:layout_width="0dp"
     android:layout_height="0dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintVertical_bias="0.1"
-    android:src="@drawable/ic_boost_big_rocket"
-    app:layout_constraintHeight_percent="0.4"
+    app:layout_constraintVertical_bias="0.2"
+    app:layout_constraintHeight_percent="0.3"
+    app:layout_constraintDimensionRatio="1:1"
+    app:lottie_rawRes="@raw/boostmain"
+    app:lottie_autoPlay="true"
+    app:lottie_loop="true"
+    android:scaleX="3"
+    android:scaleY="3"
     />
     <TextView
         android:layout_width="wrap_content"

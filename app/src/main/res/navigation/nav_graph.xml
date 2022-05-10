@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@id/mainFragment"
+    app:startDestination="@id/splashFragment"
     android:id="@+id/nav_graph">
 <fragment
     android:id="@+id/mainFragment"
@@ -70,9 +70,34 @@
     <fragment
         android:id="@+id/fileManagerFragment"
         android:name="com.cleancleanerclean.phonebooster.ui.FilesFragment.FileManagerFragment"
-       />
+       >
+        <action
+            android:id="@+id/action_fileManagerFragment_to_musicFragment"
+            app:destination="@id/musicFragment" />
+        <action
+            android:id="@+id/action_fileManagerFragment_to_videosFragment"
+            app:destination="@id/videosFragment" />
+        <action
+            android:id="@+id/action_fileManagerFragment_to_imagesFragment"
+            app:destination="@id/imagesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/appsManagerFragment"
         android:name="com.cleancleanerclean.phonebooster.ui.AppsManagerFragment.AppsManagerFragment"
         />
+    <fragment android:id="@+id/musicFragment"
+        android:name="com.cleancleanerclean.phonebooster.ui.FilesFragment.MusicFragment.MusicFragment"/>
+    <fragment
+        android:id="@+id/videosFragment"
+        android:name="com.cleancleanerclean.phonebooster.ui.FilesFragment.VideosFragment.VideosFragment"/>
+    <fragment
+        android:id="@+id/imagesFragment"
+        android:name="com.cleancleanerclean.phonebooster.ui.FilesFragment.ImagesFragment.ImagesFragment"/>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.cleancleanerclean.phonebooster.ui.SplashFragment.SplashFragment">
+        <action
+            android:id="@+id/action_splashFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>
