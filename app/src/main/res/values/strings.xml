@@ -56,6 +56,7 @@
     <string name="policy">Политика конфиденциальности</string>
     <string name="policy_bottom">Чтобы продолжить, примите условия</string>
     <string name="scanning_system">Сканирование системы</string>
+    <string name="give_storage_permission">Для эффективного нахождения и удаления ненужных файлов, нужно предоставить доступ к управлению всеми файлами телефона.</string>
     <string-array name="generic_filter_files">
         <item>.tmp</item>
         <item>.log</item>

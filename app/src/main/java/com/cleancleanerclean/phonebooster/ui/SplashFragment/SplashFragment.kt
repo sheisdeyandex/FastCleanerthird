@@ -2,6 +2,7 @@ package com.cleancleanerclean.phonebooster.ui.SplashFragment
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
+import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
@@ -57,9 +59,15 @@ class SplashFragment : Fragment() {
                 Snackbar.make(it,getString(R.string.policy_bottom),Snackbar.LENGTH_LONG).show()
             }
         }
-
+        binding.tvPolicy.setOnClickListener{
+            val url ="https://sites.google.com/view/clean-cleaner---phone-booster"
+            val builder = CustomTabsIntent.Builder()
+            val customTabsIntent =builder.build()
+            customTabsIntent.launchUrl(requireContext(), Uri.parse(url));
+        }
     }
     private fun startAnim(){
+        binding.clFirstLaunch.visibility= View.GONE
         binding.clNotFirst.visibility= View.VISIBLE
         val animation = ObjectAnimator.ofInt(binding.lpiProgress, "progress", 0, 100)
         animation.duration = 5000

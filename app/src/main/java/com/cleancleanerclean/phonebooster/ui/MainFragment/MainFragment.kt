@@ -1,18 +1,25 @@
 package com.cleancleanerclean.phonebooster.ui.MainFragment
 
-import androidx.lifecycle.ViewModelProvider
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
+import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+import android.content.pm.PackageManager
+import android.os.Build
+import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import com.cleancleanerclean.phonebooster.ui.activities.MainActivity
 import com.cleancleanerclean.phonebooster.R
 import com.cleancleanerclean.phonebooster.databinding.MainFragmentBinding
 import com.cleancleanerclean.phonebooster.ui.MainFragment.permission.DialogPermissionFragment
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import com.cleancleanerclean.phonebooster.ui.MainFragment.permission.DialogStoragePermissionFragment
+import com.cleancleanerclean.phonebooster.ui.activities.MainActivity
+
 
 class MainFragment : Fragment(){
     private var _binding: MainFragmentBinding? = null
@@ -47,10 +54,27 @@ class MainFragment : Fragment(){
         binding.tvUsedRam.text = viewModel.updateRamString(requireActivity())
         binding.tvPercentMemory.text = viewModel.progress.toString()+"%"
     }
+    private fun checkPermission(): Boolean {
+        return if (SDK_INT >= Build.VERSION_CODES.R) {
+            Environment.isExternalStorageManager()
+        } else {
+            val result =
+                ContextCompat.checkSelfPermission(requireContext(), READ_EXTERNAL_STORAGE)
+            val result1 =
+                ContextCompat.checkSelfPermission(requireContext(), WRITE_EXTERNAL_STORAGE)
+            result == PackageManager.PERMISSION_GRANTED && result1 == PackageManager.PERMISSION_GRANTED
+        }
+    }
     private fun initClicks(){
         val dialogPermissionFragment = DialogPermissionFragment()
+        val dialogStoragePermissionFragment = DialogStoragePermissionFragment()
         binding.mcvClean.setOnClickListener {
-            changeFragment(R.id.action_mainFragment_to_cleanFragment)
+            if(checkPermission()){
+                changeFragment(R.id.action_mainFragment_to_cleanFragment)
+            }
+            else{
+                dialogStoragePermissionFragment.show(childFragmentManager,"")
+            }
         }
         binding.mcvBoost.setOnClickListener {
             changeFragment(R.id.action_mainFragment_to_boostFragment)
