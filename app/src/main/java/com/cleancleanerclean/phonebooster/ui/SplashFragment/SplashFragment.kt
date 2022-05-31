@@ -76,7 +76,6 @@ class SplashFragment : Fragment() {
             override fun onAnimationStart(animation: Animator?) {
 
             }
-
             override fun onAnimationEnd(animation: Animator?) {
                 startMainScreen()
             }

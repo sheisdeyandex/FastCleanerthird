@@ -88,8 +88,9 @@ class CleanFragment : Fragment() {
             delay(viewModel.timer)
             }
             if(delete){
-                    admobInter.showInter(requireActivity())
-                    (requireActivity() as MainActivity).navController.navigate(R.id.action_cleanFragment_to_finishOrRecommend)
+                admobInter.showInter(requireActivity())
+                App.clean=true
+                (requireActivity() as MainActivity).navController.navigate(R.id.action_cleanFragment_to_finishOrRecommend)
             }
             else{
                 endOfScan()

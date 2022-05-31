@@ -10,12 +10,13 @@
         <entry key="..\:/Users/Sulton/StudioProjects/FastCleanerthird/app/src/main/res/drawable/ic_clean_file.xml" value="0.1685" />
         <entry key="..\:/Users/Sulton/StudioProjects/FastCleanerthird/app/src/main/res/layout/apps_manager_fragment.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/Sulton/StudioProjects/FastCleanerthird/app/src/main/res/layout/battery_saver_fragment.xml" value="0.17831813576494426" />
-        <entry key="..\:/Users/Sulton/StudioProjects/FastCleanerthird/app/src/main/res/layout/boost_fragment.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/Sulton/StudioProjects/FastCleanerthird/app/src/main/res/layout/boost_fragment.xml" value="0.25" />
         <entry key="..\:/Users/Sulton/StudioProjects/FastCleanerthird/app/src/main/res/layout/clean_fragment.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/Sulton/StudioProjects/FastCleanerthird/app/src/main/res/layout/cool_fragment.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/Sulton/StudioProjects/FastCleanerthird/app/src/main/res/layout/dialog_permission.xml" value="0.33" />
         <entry key="..\:/Users/Sulton/StudioProjects/FastCleanerthird/app/src/main/res/layout/dialog_storage_permission.xml" value="0.33" />
         <entry key="..\:/Users/Sulton/StudioProjects/FastCleanerthird/app/src/main/res/layout/file_manager_fragment.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/Sulton/StudioProjects/FastCleanerthird/app/src/main/res/layout/finish_or_recommen_fragment.xml" value="0.25" />
         <entry key="..\:/Users/Sulton/StudioProjects/FastCleanerthird/app/src/main/res/layout/images_fragment.xml" value="0.25" />
         <entry key="..\:/Users/Sulton/StudioProjects/FastCleanerthird/app/src/main/res/layout/item_images.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/Sulton/StudioProjects/FastCleanerthird/app/src/main/res/layout/item_songs.xml" value="0.14722222222222223" />

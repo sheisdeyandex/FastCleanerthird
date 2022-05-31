@@ -17,6 +17,7 @@
         android:supportsRtl="true"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
+        android:name=".App"
         android:theme="@style/Theme.FastCleaner">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

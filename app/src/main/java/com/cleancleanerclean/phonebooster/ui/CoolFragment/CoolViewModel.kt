@@ -1,6 +1,8 @@
 package com.cleancleanerclean.phonebooster.ui.CoolFragment
 
 import android.content.Context
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageInfo
 import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
@@ -46,5 +48,8 @@ class CoolViewModel : ViewModel() {
             e.printStackTrace()
             0.0f
         }
+    }
+    fun isSystemPackage(pkgInfo: PackageInfo): Boolean {
+        return pkgInfo.applicationInfo.flags and ApplicationInfo.FLAG_SYSTEM != 0
     }
 }

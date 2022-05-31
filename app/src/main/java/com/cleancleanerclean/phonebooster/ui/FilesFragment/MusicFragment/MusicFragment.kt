@@ -21,17 +21,7 @@ class MusicFragment : Fragment(),ICheckbox {
     val binding get() = _binding!!
     companion object {
         fun newInstance() = MusicFragment()
-        private fun convertSize(length: Long): String? {
-            val format = DecimalFormat("#.##")
-            val mb = (1024 * 1024).toLong()
-            val kb: Long = 1024
-            if (length > mb) {
-                return format.format(length / mb) + " MB"
-            }
-            return if (length > kb) {
-                format.format(length / kb) + " KB"
-            } else format.format(length) + " B"
-        }
+
     }
 
     private lateinit var viewModel: MusicViewModel

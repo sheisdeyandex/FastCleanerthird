@@ -28,10 +28,10 @@ class ImagesFragment : Fragment(),ICheckbox {
     companion object {
         fun newInstance() = ImagesFragment()
     }
-    private var uniqueId = 0
-    private fun getUniqueId(): Int {
-        return uniqueId++
-    }
+            private var uniqueId = 0
+            private fun getUniqueId(): Int {
+                return uniqueId++
+            }
     private var _binding: ImagesFragmentBinding? = null
     val binding get() = _binding!!
     private lateinit var viewModel: ImagesViewModel

@@ -12,6 +12,7 @@ import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.cleancleanerclean.phonebooster.App
 import com.cleancleanerclean.phonebooster.R
 import com.cleancleanerclean.phonebooster.databinding.BatterySaverFragmentBinding
 import com.cleancleanerclean.phonebooster.dry.AdmobBanner
@@ -76,6 +77,7 @@ class BatterySaverFragment : Fragment() {
                 CoroutineScope(Dispatchers.Main).launch {
                     delay(1000)
                     admobInter.showInter(requireActivity())
+                    App.batterySaver=true
                     view?.findNavController()?.navigate(R.id.action_batterySaverFragment_to_finishOrRecommend)
                 }
                     }

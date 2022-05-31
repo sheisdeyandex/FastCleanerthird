@@ -8,6 +8,7 @@ import com.cleancleanerclean.phonebooster.R
 import com.cleancleanerclean.phonebooster.Utils.UiUtils
 import com.cleancleanerclean.phonebooster.databinding.ActivityMainBinding
 import com.google.android.gms.ads.MobileAds
+import java.text.DecimalFormat
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +32,20 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
         navController = navHostFragment.navController
     }
+    companion object{
 
+        fun convertSize(length: Long): String? {
+            val format = DecimalFormat("#.##")
+            val mb = (1024 * 1024).toLong()
+            val kb: Long = 1024
+            if (length > mb) {
+                return format.format(length / mb) + " MB"
+            }
+            return if (length > kb) {
+                format.format(length / kb) + " KB"
+            } else format.format(length) + " B"
+        }
+    }
     override fun onBackPressed() {
         super.onBackPressed()
         finish()

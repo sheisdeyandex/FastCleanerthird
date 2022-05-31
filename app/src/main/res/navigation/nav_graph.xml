@@ -9,7 +9,8 @@
     >
     <action
         android:id="@+id/action_mainFragment_to_cleanFragment"
-        app:destination="@id/cleanFragment" />
+        app:destination="@id/cleanFragment"
+        />
     <action
         android:id="@+id/action_mainFragment_to_boostFragment"
         app:destination="@id/boostFragment" />
@@ -43,13 +44,27 @@
         <action
             android:id="@+id/action_finishOrRecommend_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_finishOrRecommend_to_boostFragment"
+            app:destination="@id/boostFragment" />
+        <action
+            android:id="@+id/action_finishOrRecommend_to_cleanFragment"
+            app:destination="@id/cleanFragment" />
+        <action
+            android:id="@+id/action_finishOrRecommend_to_batterySaverFragment"
+            app:destination="@id/batterySaverFragment" />
+        <action
+            android:id="@+id/action_finishOrRecommend_to_coolFragment"
+            app:destination="@id/coolFragment" />
     </fragment>
     <fragment android:id="@+id/boostFragment"
         android:name="com.cleancleanerclean.phonebooster.ui.BoostFragment.BoostFragment"
         >
         <action
             android:id="@+id/action_boostFragment_to_finishOrRecommend"
-            app:destination="@id/finishOrRecommend" />
+            app:destination="@id/finishOrRecommend"
+            app:popUpToInclusive="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/coolFragment"
@@ -57,7 +72,9 @@
         >
         <action
             android:id="@+id/action_coolFragment_to_finishOrRecommend"
-            app:destination="@id/finishOrRecommend" />
+            app:destination="@id/finishOrRecommend"
+            app:popUpToInclusive="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/batterySaverFragment"
